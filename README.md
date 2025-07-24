@@ -1,93 +1,83 @@
-# MNIST Handwritten Digit Classifier with PyTorch
+# MNIST PyTorch Classifier 🧠🔢
 
-Este projeto implementa uma rede neural simples para classificação de dígitos manuscritos utilizando o dataset MNIST. Foi desenvolvido com o framework PyTorch e tem como objetivo demonstrar, de forma didática, o funcionamento de uma rede neural artificial treinada do zero.
+Este projeto implementa uma rede neural simples utilizando PyTorch para classificar dígitos manuscritos do famoso dataset MNIST. O projeto cobre desde o pré-processamento dos dados até o treinamento do modelo e visualização de resultados, sendo ideal para iniciantes em redes neurais e aprendizado profundo.
 
-## 🔍 Sobre o Projeto
+---
 
-O MNIST é um dataset amplamente utilizado na área de aprendizado de máquina, composto por 70.000 imagens em escala de cinza de dígitos manuscritos (60.000 para treino e 10.000 para teste), com tamanho 28x28 pixels.
+## 🧰 Tecnologias utilizadas
 
-Neste projeto:
-- Utilizamos o PyTorch para definir a arquitetura da rede, otimizar os pesos e realizar as predições.
-- O modelo é treinado por padrão com 10 épocas, mas isso pode ser ajustado facilmente.
-- Ao final do treinamento, o modelo é salvo no formato `.pth` para reutilização.
+- Python 3.x
+- PyTorch
+- Torchvision
+- Matplotlib
+- tqdm
 
-## 🧠 Estrutura da Rede Neural
+---
+## Estrutura do Projeto
 
-A rede implementada possui a seguinte arquitetura:
-- Entrada: 784 neurônios (28x28 pixels achatados)
-- Camada oculta: 128 neurônios com ativação ReLU
-- Saída: 10 neurônios (um para cada dígito de 0 a 9) com ativação log-softmax
+```📁 mnist-pytorch-classifier/
+├── 📄 rede_neural.py # Script principal com definição da rede e treinamento
+├── 📄 modelo_mnist.pth # Arquivo salvo do modelo treinado
+├── 📄 requirements.txt # Lista de dependências do projeto
+└── 📄 README.md # Documentação do projeto
+```
 
-## 📁 Estrutura do Projeto
 
-rede-neural-do-zero/
-│
-├── rede_neural.py # Código principal do projeto
-├── modelo_mnist.pth # Arquivo com os pesos salvos do modelo treinado
-├── requirements.txt # Lista de dependências do projeto
-└── README.md # Este arquivo
 
-## 🚀 Como Executar o Projeto
+
+---
+
+## 🚀 Como executar o projeto
 
 ### 1. Clone o repositório
 
+```bash
 git clone https://github.com/Barbaralampert97/mnist-pytorch-classifier.git
 cd mnist-pytorch-classifier
-2. Crie um ambiente virtual (opcional, mas recomendado)
-
+```
+### 2. Crie um ambiente virtual (opcional, mas recomendado)
+```bash
 python -m venv .venv
-# Ativando no Windows
-.venv\Scripts\activate
-# Ativando no Linux/macOS
-source .venv/bin/activate
-3. Instale as dependências
-bash
-Copiar
-Editar
+source .venv/bin/activate        # Linux/macOS
+.\.venv\Scripts\activate         # Windows
+```
+### 3. Instale as dependências
+```bash
 pip install -r requirements.txt
-4. Execute o script
-bash
-Copiar
-Editar
+```
+### 4. Execute o código
+```bash
 python rede_neural.py
-O script irá:
+```
 
-Baixar automaticamente o dataset MNIST
+💡 O que o script faz?
+Carrega o dataset MNIST (imagens de dígitos de 0 a 9).
 
-Treinar a rede neural
+Define uma arquitetura simples de rede neural com camadas lineares e função de ativação ReLU.
 
-Exibir algumas imagens de teste com as predições
+Treina a rede neural utilizando o otimizador Adam e perda CrossEntropyLoss.
 
-Salvar o modelo como modelo_mnist.pth
+Salva o modelo treinado no arquivo modelo_mnist.pth.
 
-🔄 Ajustes Possíveis
-Se quiser treinar por mais ou menos épocas, basta alterar o valor da variável epochs no arquivo rede_neural.py:
+Exibe algumas imagens de teste com suas previsões.
 
+### 🧪 Resultados
+Durante o treinamento, são exibidos gráficos da função de perda para que você possa acompanhar a evolução do modelo.
 
-epochs = 10  # você pode mudar para qualquer número de épocas
-💾 Como carregar o modelo salvo
-Você pode carregar o modelo salvo com o seguinte código:
+Além disso, algumas imagens de validação são mostradas com a previsão da rede para análise qualitativa.
 
-import torch
+### 📦 Modelo Treinado
+O modelo treinado é salvo no arquivo modelo_mnist.pth. Você pode reutilizá-lo futuramente para fazer inferência em novas imagens.
 
-model = torch.load('modelo_mnist.pth')
-model.eval()
-🧪 Requisitos
-Python 3.8+
+### 📚 Fontes de estudo
+Documentação do PyTorch
 
-PyTorch
+Curso de Machine Learning com PyTorch - DIO
 
-Torchvision
+### 🧑‍💻 Autor
+## Barbara Lampert 
 
-Matplotlib
+Engenharia de Produção | Análise e Desenvolvimento de Sistemas | GitHub: @Barbaralampert97
 
-Numpy
-
-📚 Fontes e Referências
-MNIST Dataset
-
-PyTorch Documentation
-
-🧑‍💻 Autora
-Feito com 💡 por @Barbaralampert97 como parte do aprendizado em inteligência artificial e redes neurais com PyTorch.
-
+### 📝 Licença
+Este projeto está sob a licença MIT. Sinta-se à vontade para usar, modificar e compartilhar.
